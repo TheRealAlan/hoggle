@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.name          = "hoggle"
   spec.version       = Hoggle::VERSION
   spec.authors       = ["Alan Crissey"]
-  spec.email         = ["alan.crissey@mailchimp.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
+  spec.email         = ["alancrissey@gmail.com"]
+  spec.summary       = "An inline-block based grid system."
   spec.description   = %q{TODO: Write a longer description. Optional.}
   spec.homepage      = ""
   spec.license       = "MIT"

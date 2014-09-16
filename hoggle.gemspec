@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Alan Crissey"]
   spec.email         = ["alancrissey@gmail.com"]
   spec.summary       = "An inline-block based grid system."
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.description   = "An inline-block based grid system."
   spec.homepage      = ""
   spec.license       = "MIT"
 

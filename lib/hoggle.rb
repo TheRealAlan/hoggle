@@ -1,6 +1,9 @@
 require "hoggle/version"
 
 module Hoggle
-  class Engine < Rails::Engine
+
+  if defined?(::Rails) && ::Rails.version >= '4.1.0'
+    
   end
+
 end

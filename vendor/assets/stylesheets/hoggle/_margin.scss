@@ -1,0 +1,42 @@
+/*
+Classes: .margin-*
+Creates margin classes in multiples of $base up to 6.
+*/
+
+@for $i from 1 through 6 {
+
+  /* Equal padding all around */
+  .margin-#{$i} {
+    margin: $base * $i;
+  }
+
+  /* Top */
+  .margin-top-#{$i} {
+    margin-top: $base * $i;
+  }
+
+  /* Right */
+  .margin-right-#{$i} {
+    margin-right: $base * $i;
+  }
+
+  /* Bottom */
+  .margin-bottom-#{$i} {
+    margin-bottom: $base * $i;
+  }
+
+  /* Left */
+  .margin-left-#{$i} {
+    margin-left: $base * $i;
+  }
+
+  /* Top, Bottom */
+  .margin-v-#{$i} {
+    margin: $base * $i 0;
+  }
+
+  /* Left, Right */
+  .margin-h-#{$i} {
+    margin: 0 $base * $i;
+  }
+}

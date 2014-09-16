@@ -1,0 +1,173 @@
+/*
+clearfix is attached to the .clearfix class
+*/
+@mixin clearfix {
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+/*
+swap mixin is attached to the .swap class
+*/
+@mixin swap {
+
+  &.swap {
+    direction: rtl;
+
+    > * {
+      direction: ltr;
+    }
+
+    > .swap {
+      direction: inherit;
+    }
+  }
+}
+
+/*
+Generate grid classes, as well as hide / show classes off of $sizes array. Since some elements may beed to be shown with block and others with inline-block, the hide / show classes may need to be split into to versions for flexibility.
+
+2 column mobile example:
+
+  .small-1of2
+
+8 column desktop example:
+
+  .large-1of8
+
+hide on mobile:
+
+  .hide-small
+
+*/
+@mixin grid-classes( $size ) {
+
+  /* Create grid classes */
+
+  @media screen and ( min-width: nth( $size, 2 ) ) {
+
+    /* Columns */
+    .#{nth( $size, 1 )}-1of1 {
+      width: percentage( 1/1 ) !important;
+    }
+
+    .#{nth( $size, 1 )}-1of2 {
+      width: percentage( 1/2 ) !important;
+    }
+
+    .#{nth( $size, 1 )}-1of3 {
+      width: percentage( 1/3 ) !important;
+    }
+
+    .#{nth( $size, 1 )}-2of3 {
+      width: percentage( 2/3 ) !important;
+    }
+
+    .#{nth( $size, 1 )}-1of4 {
+      width: percentage( 1/4 ) !important;
+    }
+
+    .#{nth( $size, 1 )}-3of4 {
+      width: percentage( 3/4 ) !important;
+    }
+
+    .#{nth( $size, 1 )}-1of8 {
+      width: percentage( 1/8 ) !important;
+    }
+
+    .#{nth( $size, 1 )}-3of8 {
+      width: percentage( 3/8 ) !important;
+    }
+
+    .#{nth( $size, 1 )}-5of8 {
+      width: percentage( 5/8 ) !important;
+    }
+
+    .#{nth( $size, 1 )}-7of8 {
+      width: percentage( 7/8 ) !important;
+    }
+
+    /* Offsets */
+
+    .#{nth( $size, 1 )}-offset-1of2 {
+      margin-left: percentage( 1/2 );
+    }
+
+    .#{nth( $size, 1 )}-offset-1of3 {
+      margin-left: percentage( 1/3 );
+    }
+
+    .#{nth( $size, 1 )}-offset-2of3 {
+      margin-left: percentage( 2/3 );
+    }
+
+    .#{nth( $size, 1 )}-offset-1of4 {
+      margin-left: percentage( 1/4 );
+    }
+
+    .#{nth( $size, 1 )}-offset-3of4 {
+      margin-left: percentage( 3/4 );
+    }
+
+    .#{nth( $size, 1 )}-offset-1of8 {
+      margin-left: percentage( 1/8 );
+    }
+
+    .#{nth( $size, 1 )}-offset-3of8 {
+      margin-left: percentage( 3/8 );
+    }
+
+    .#{nth( $size, 1 )}-offset-5of8 {
+      margin-left: percentage( 5/8 );
+    }
+
+    .#{nth( $size, 1 )}-offset-7of8 {
+      margin-left: percentage( 7/8 );
+    }
+  }
+
+  /* Create hide / show classes */
+
+  /* for the smallest */
+
+  @if nth( $size, 1 ) == "x-small" {
+
+    @media screen and ( max-width: nth( $size, 3 ) ) {
+
+      .show-#{nth( $size, 1 )} {
+        display: block !important;
+      }
+
+      .hide-#{nth( $size, 1 )} {
+        display: none !important;
+      }
+    }
+  }
+
+  /* for all the rest */
+
+  @else {
+
+    @media screen and ( min-width: nth( $size, 2 ) ) and ( max-width: nth( $size, 3 ) ) {
+
+      .show-#{nth( $size, 1 )} {
+        display: block !important;
+      }
+
+      .hide-#{nth( $size, 1 )} {
+        display: none !important;
+      }
+    }
+  }
+}
+
+/*
+Build the grid classes
+*/
+@each $size in $sizes {
+  @include grid-classes( $size );
+}

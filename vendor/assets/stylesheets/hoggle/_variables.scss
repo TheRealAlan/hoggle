@@ -1,0 +1,34 @@
+/*
+Units
+*/
+
+$base: 6px;
+$gutter: $base * 2;
+
+/*
+Breakpoints
+*/
+
+$x_small: 0px;
+$small: 480px;
+$medium: 768px;
+$large: 992px;
+$x_large: 1200px;
+
+$x_small_max: $small - 1;
+$small_max: $medium - 1;
+$medium_max: $large - 1;
+$large_max: $x_large - 1;
+$x_large_max: 9999px;
+
+/*
+The $sizes array powers the grid class mixin
+*/
+
+$sizes: (
+  "x-small" $x_small $x_small_max,
+  "small" $small $small_max,
+  "medium" $medium $medium_max,
+  "large" $large $large_max,
+  "x-large" $x_large $x_large_max
+);

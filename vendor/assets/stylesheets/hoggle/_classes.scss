@@ -1,0 +1,117 @@
+/*
+Class: .clearfix
+Standard modern clearfix.
+*/
+.clearfix {
+  @include clearfix();
+}
+
+/*
+Class: .swap
+Place this on a .row to swap the column order.
+*/
+.swap {
+  @include swap();
+}
+
+/*
+Class: .center
+Basic class to center text.
+*/
+.center {
+  text-align: center;
+}
+
+/*
+Class: .container
+This limits the width of content and centers it. The breakpoints are powered off the $sizes array.
+*/
+.container {
+  max-width: $x-large;
+  margin: 0 auto;
+
+  @each $size in $sizes {
+
+    @if nth( $size, 1 ) == "x-small" {
+
+      @media screen and ( min-width: nth( $size, 2 ) ) {
+        max-width: nth( $size, 3 );
+      }
+    }
+
+    @else {
+
+      @media screen and ( min-width: nth( $size, 2 ) ) {
+        max-width: nth( $size, 2 );
+      }
+    }
+  }
+}
+
+/*
+Class: .row
+Wraps columns.
+*/
+.row {
+  @include clearfix();
+  clear: both;
+}
+
+/*
+Class: .col
+Common column. May split this up into more flexible components.
+*/
+.col {
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 $gutter;
+  vertical-align: inherit;
+
+  &.top {
+    vertical-align: top;
+  }
+
+  &.middle {
+    vertical-align: middle;
+  }
+
+  &.bottom {
+    vertical-align: bottom;
+  }
+
+  // &:before {
+  //   content: '';
+  //   display: inline-block;
+  //   height: 100%;
+  //   vertical-align: middle;
+  //   margin-right: -0.25em;
+  // }
+}
+
+/*
+Class: .content
+May or may not actually use this.
+*/
+.content {
+  padding: $gutter 0;
+}
+
+/*
+Class: .visible-grid
+Visual aid for showing the grid and its gutter during development.
+*/
+.visible-grid {
+
+  .col {
+    background-color: #eee;
+    border-left: $gutter solid #ccc;
+    border-right: $gutter solid #ccc;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+

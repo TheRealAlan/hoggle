@@ -1,0 +1,42 @@
+/*
+Classes: .pad-*
+Creates padding classes in multiples of $base up to 6.
+*/
+
+@for $i from 1 through 6 {
+
+  /* Equal padding all around */
+  .pad-#{$i} {
+    padding: $base * $i;
+  }
+
+  /* Top */
+  .pad-top-#{$i} {
+    padding-top: $base * $i;
+  }
+
+  /* Right */
+  .pad-right-#{$i} {
+    padding-right: $base * $i;
+  }
+
+  /* Bottom */
+  .pad-bottom-#{$i} {
+    padding-bottom: $base * $i;
+  }
+
+  /* Left */
+  .pad-left-#{$i} {
+    padding-left: $base * $i;
+  }
+
+  /* Top, Bottom */
+  .pad-v-#{$i} {
+    padding: $base * $i 0;
+  }
+
+  /* Left, Right */
+  .pad-h-#{$i} {
+    padding: 0 $base * $i;
+  }
+}

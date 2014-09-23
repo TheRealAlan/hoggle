@@ -101,7 +101,7 @@ There are classes for each size to hide and show elements that are appropriate. 
 
 Vertically center content with `.middle`.
 
-Vertically centering works because the columns are set to `inline-block`. This tends to be problematic because of whitespace that gets created between tags when the page is limited. If you’re using HAML, you can easily eliminate whitespace by placein a `>` at the end of the `.row` and column tags. If you're writing plain html, a workaround is to place the opening and closing tags together, like `</div><div>`.
+Vertical centering works because the columns are set to `inline-block`. This tends to be problematic because of whitespace that gets created between tags when the page is rendered. If you’re using HAML, you can easily eliminate whitespace by placing a `>` at the end of the `.row` and column tags. If you’re writing plain html, a workaround is to place the opening and closing tags together, like `</div><div>`.
 
 Content can be aligned to the bottom by using `.bottom` as well.
 
@@ -111,8 +111,8 @@ Swap column layout with <code class="code">.swap</code>. The order will stack co
 
 ### Padding & Margin Helpers
 
-Padding and margin can be added with classes that are multiples of `$base`, which by default are 6px. For example, `.pad-3` would result in 18px of padding on all four sides. There are separate classes for direction as well. For top and bottom, `.pad-v-*`, and for left and right, `.pad-h-*`. Add padding to just one side using `.pad-top-*`, `.pad-right-*`, `.pad-bottom-*`, and `.pad-left-*`.
+Padding and margin can be added with classes that are multiples of `$base` up to 6, which by default are 6px. For example, `.pad-3` would result in 18px of padding on all four sides. There are separate classes for direction as well. For top and bottom, `.pad-v-*`, and for left and right, `.pad-h-*`. Add padding to just one side using `.pad-top-*`, `.pad-right-*`, `.pad-bottom-*`, and `.pad-left-*`.
 
 ### Responsive Padding & Margin Helpers
 
-Often there’s a need for changing margins and paddings for different screen sizes. The margin and padding classes can also be set with screen size prefixes, just like the column widths. For example, `.x-small-margin-bottom-3` will only add 18px of margin when the columns are stacked on a phone.
+Often there’s a need for changing margin and padding for different screen sizes. The margin and padding classes can also be set with screen size prefixes, just like the column widths. For example, `.x-small-margin-bottom-3` will only add 18px of margin when the columns are stacked on a phone.

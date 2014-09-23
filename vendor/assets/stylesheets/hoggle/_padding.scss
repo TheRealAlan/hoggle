@@ -39,4 +39,46 @@ Creates padding classes in multiples of $base up to 6.
   .pad-h-#{$i} {
     padding: 0 $base * $i;
   }
+
+  /* Responsive Classes */
+
+  @each $size in $sizes {
+
+    @media screen and ( min-width: nth( $size, 2 ) ) and ( max-width: nth( $size, 3 ) ) {
+
+      .#{nth( $size, 1 )}-pad-#{$i} {
+        padding: $base * $i;
+      }
+
+      /* Top */
+      .#{nth( $size, 1 )}-pad-top-#{$i} {
+        padding-top: $base * $i;
+      }
+
+      /* Right */
+      .#{nth( $size, 1 )}-pad-right-#{$i} {
+        padding-right: $base * $i;
+      }
+
+      /* Bottom */
+      .#{nth( $size, 1 )}-pad-bottom-#{$i} {
+        padding-bottom: $base * $i;
+      }
+
+      /* Left */
+      .#{nth( $size, 1 )}-pad-left-#{$i} {
+        padding-left: $base * $i;
+      }
+
+      /* Top, Bottom */
+      .#{nth( $size, 1 )}-pad-v-#{$i} {
+        padding: $base * $i 0;
+      }
+
+      /* Left, Right */
+      .#{nth( $size, 1 )}-pad-h-#{$i} {
+        padding: 0 $base * $i;
+      }
+    }
+  }
 }

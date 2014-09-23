@@ -91,27 +91,3 @@ Common column. May split this up into more flexible components.
   //   margin-right: -0.25em;
   // }
 }
-
-/*
-Class: .content
-May or may not actually use this.
-*/
-.content {
-  padding: $gutter 0;
-}
-
-/*
-Class: .visible-grid
-Visual aid for showing the grid and its gutter during development.
-*/
-.visible-grid {
-
-  .col {
-    background-color: #eee;
-    border-left: $gutter solid #ccc;
-    border-right: $gutter solid #ccc;
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-

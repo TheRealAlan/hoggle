@@ -27,6 +27,10 @@ Include the Hoggle stylesheets:
 @import "hoggle";
 ```
 
+## Another Grid? Why?
+
+I’ve used a lot of grid systems - Bootstrap, Foundation, Bourbon’s Neat - and all of them are just too much. I wanted a reusable grid that was simple, lightweight, and unobtrusive. I also wanted responsive flexibility that I didn’t get with other grid systems, as well as the ability to easily vertically center elements. Most other grid systems are float based. Hoggle is inline-block based.
+
 ## Usage
 
 ### Columns

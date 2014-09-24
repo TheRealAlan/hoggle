@@ -4,32 +4,31 @@ An inline-block based grid system. Still very much in its early stages.
 
 View the [demo](http://therealalan.github.io/hoggle-test/). There's a [hoggle-test](https://github.com/TheRealAlan/hoggle-test) built on Middleman to play with.
 
-## Requirements
-
-- Sass
-- something like Autoprefixer
-
-This is a prefix free, inline-block based grid system. You'll need something like [Autoprefixer](https://github.com/postcss/autoprefixer) to handle your vendor prefixes. Whitespace may be an issue with the inline-block columns. If you're writing your HTML using HAML, you can clear out the whitespace with a `>` at the end of the tags. Since it's an inline-block grid, there are several advantages, one being the ability to easily vertically align content.
+This is an inline-block based grid system built on Sass. There are no other requirements. Whitespace may be an issue with the inline-block columns. If you’re using HAML, you can clear out the whitespace with a `>` at the end of tags. Since this is an inline-block grid, it’s easy to vertically align content. Yay!
 
 ## Get the Gem
 
-For now, there's just a gem. Add this to your gemfile.
+For now there’s just a gem. Add this to your gemfile.
 
 ```
 gem "hoggle", :github => "TheRealAlan/hoggle"
 ```
 
+Then run `bundle install` and you should get the goods.
+
 ## Include the SCSS
 
-Include the Hoggle stylesheets:
+If you’re using the Rails asset pipeline, including the Hoggle stylesheets is easy:
 
 ``` scss
 @import "hoggle";
 ```
 
+If not, just download the zip and dig into the vendor folder.
+
 ## Another Grid? Why?
 
-I’ve used a lot of grid systems - Bootstrap, Foundation, Bourbon’s Neat - and all of them are just too much. I wanted a reusable grid that was simple, lightweight, and unobtrusive. I also wanted responsive flexibility that I didn’t get with other grid systems, as well as the ability to easily vertically center elements. Most other grid systems are float based. Hoggle is inline-block based.
+I’ve used a lot of grid systems - Bootstrap, Foundation, Bourbon’s Neat - and all of them are great, but also too much. I wanted a reusable grid that was simple, lightweight, unobtrusive, and just a grid. I wanted responsive flexibility that I didn’t get with other grid systems, as well as the ability to easily vertically center elements. Most other grid systems are float based. Hoggle is inline-block based.
 
 ## Usage
 

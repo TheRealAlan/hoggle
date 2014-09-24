@@ -29,7 +29,9 @@ swap mixin is attached to the .swap class
 }
 
 /*
-Generate grid classes, as well as hide / show classes off of $sizes array. Since some elements may beed to be shown with block and others with inline-block, the hide / show classes may need to be split into to versions for flexibility.
+Generate grid classes, as well as hide / show classes off of $sizes array. 
+Since some elements may beed to be shown with block and others with inline-block, 
+the hide / show classes may need to be split into to versions for flexibility.
 
 2 column mobile example:
 
@@ -41,7 +43,7 @@ Generate grid classes, as well as hide / show classes off of $sizes array. Since
 
 hide on mobile:
 
-  .hide-small
+  .hide-x-small
 
 */
 @mixin grid-classes( $size ) {
@@ -129,8 +131,6 @@ hide on mobile:
       margin-left: percentage( 7/8 );
     }
   }
-
-  /* Create hide / show classes */
 
   /* for the smallest */
 

@@ -55,10 +55,10 @@ The `.col` width is determined by the suffix of the class names. The default ava
   <div class="col medium-1of1">
     
   </div>
-  <div class="medium-1of2">
+  <div class="col medium-1of2">
     
   </div>
-  <div class="medium-1of3">
+  <div class="col medium-1of3">
     
   </div>
   etc.

@@ -4,7 +4,9 @@ An inline-block based grid system. Still very much in its early stages.
 
 [Read the docs](http://therealalan.github.io/hoggle-docs/).
 
-This is an inline-block based grid system built on Sass. There are no other requirements. Whitespace may be an issue with the inline-block columns. If you’re using HAML, you can clear out the whitespace with a `>` at the end of tags. Since this is an inline-block grid, it’s easy to vertically align content. Yay!
+This is an inline-block based grid system built on Sass. There are no other requirements. Whitespace may be an issue with the inline-block columns. If you’re using HAML, you can clear out the whitespace with a `>` at the end of tags. If you’re using `.erb` or straight `html`, you can prevent whitespace by placing the opening and closing tags of your `.col` containers against each other, like `</div><div class="col">`.
+
+Since this is an inline-block grid, it’s easy to vertically align content. Yay!
 
 ## Get the Gem
 

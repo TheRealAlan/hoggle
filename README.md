@@ -10,7 +10,7 @@ This is an inline-block based grid system built on Sass. There are no other requ
 
 For now there’s just a gem. Add this to your gemfile.
 
-```
+``` ruby
 gem "hoggle", :github => "TheRealAlan/hoggle"
 ```
 

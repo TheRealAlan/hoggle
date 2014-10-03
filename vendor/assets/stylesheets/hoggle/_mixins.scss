@@ -171,3 +171,30 @@ Build the grid classes
 @each $size in $sizes {
   @include grid-classes( $size );
 }
+
+/*
+Less than media query
+*/
+@mixin less_than($point) {
+  @media screen and (max-width: $point) {
+    @content;
+  }
+}
+
+/*
+Greater than media query
+*/
+@mixin greater_than($point) {
+  @media screen and (min-width: $point) {
+    @content;
+  }
+}
+
+/*
+In between than media query
+*/
+@mixin between($point1, $point2) {
+  @media screen and (min-width: $point1) and (max-width: $point2) {
+    @content;
+  }
+}

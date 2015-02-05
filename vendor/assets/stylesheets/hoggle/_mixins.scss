@@ -1,3 +1,50 @@
+/// Generates a media query based on a list of conditions
+///
+/// @author Eduardo Boucas
+///
+/// @param {List}   $conditions  - Media query conditions
+///
+/// @example scss - With a single set breakpoint
+///  @include media(">phone") { }
+///
+/// @example scss - With two set breakpoints
+///  @include media(">phone", "<=tablet") { }
+///
+/// @example scss - With custom values
+///  @include media(">=358px", "<850px") { }
+///
+/// @example scss - With set breakpoints with custom values
+///  @include media(">desktop", "<=1350px") { }
+///
+/// @example scss - With a static expression
+///  @include media("retina2x") { }
+///
+/// @example scss - Mixing everything
+///  @include media(">=350px", "<tablet", "retina3x") { }
+///
+@mixin media($conditions...) {
+  @for $i from 1 through length($conditions) {
+    $conditions: set-nth($conditions, $i, parse-expression(nth($conditions, $i)));
+  }
+
+  $branches: get-query-branches($conditions);
+  $query: '';
+
+  @each $branch in $branches {
+    @if (str-length($query) != 0) {
+      $query: $query + ', ';
+    }
+
+    $query: $query + $branch;
+  }
+
+  @media #{$query} {
+    @content;
+  }
+}
+
+
+
 /*
 clearfix is attached to the .clearfix class
 */
@@ -46,121 +93,100 @@ hide on mobile:
   .hide-x-small
 
 */
-@mixin grid-classes( $size ) {
+@mixin grid-classes($breakpoint) {
 
   /* Create grid classes */
 
-  @media screen and ( min-width: nth( $size, 2 ) ) {
+  @include media('>#{nth($breakpoint, 2)}') {
 
     /* Columns */
-    .#{nth( $size, 1 )}-1of1 {
-      width: percentage( 1/1 ) !important;
+    .#{nth($breakpoint, 1)}-1of1 {
+      width: percentage(1/1) !important;
     }
 
-    .#{nth( $size, 1 )}-1of2 {
-      width: percentage( 1/2 ) !important;
+    .#{nth($breakpoint, 1)}-1of2 {
+      width: percentage(1/2) !important;
     }
 
-    .#{nth( $size, 1 )}-1of3 {
-      width: percentage( 1/3 ) !important;
+    .#{nth($breakpoint, 1)}-1of3 {
+      width: percentage(1/3) !important;
     }
 
-    .#{nth( $size, 1 )}-2of3 {
-      width: percentage( 2/3 ) !important;
+    .#{nth($breakpoint, 1)}-2of3 {
+      width: percentage(2/3) !important;
     }
 
-    .#{nth( $size, 1 )}-1of4 {
-      width: percentage( 1/4 ) !important;
+    .#{nth($breakpoint, 1)}-1of4 {
+      width: percentage(1/4) !important;
     }
 
-    .#{nth( $size, 1 )}-3of4 {
-      width: percentage( 3/4 ) !important;
+    .#{nth($breakpoint, 1)}-3of4 {
+      width: percentage(3/4) !important;
     }
 
-    .#{nth( $size, 1 )}-1of8 {
-      width: percentage( 1/8 ) !important;
+    .#{nth($breakpoint, 1)}-1of8 {
+      width: percentage(1/8) !important;
     }
 
-    .#{nth( $size, 1 )}-3of8 {
-      width: percentage( 3/8 ) !important;
+    .#{nth($breakpoint, 1)}-3of8 {
+      width: percentage(3/8) !important;
     }
 
-    .#{nth( $size, 1 )}-5of8 {
-      width: percentage( 5/8 ) !important;
+    .#{nth($breakpoint, 1)}-5of8 {
+      width: percentage(5/8) !important;
     }
 
-    .#{nth( $size, 1 )}-7of8 {
-      width: percentage( 7/8 ) !important;
+    .#{nth($breakpoint, 1)}-7of8 {
+      width: percentage(7/8) !important;
     }
 
     /* Offsets */
 
-    .#{nth( $size, 1 )}-offset-1of2 {
-      margin-left: percentage( 1/2 );
+    .#{nth($breakpoint, 1)}-offset-1of2 {
+      margin-left: percentage(1/2);
     }
 
-    .#{nth( $size, 1 )}-offset-1of3 {
-      margin-left: percentage( 1/3 );
+    .#{nth($breakpoint, 1)}-offset-1of3 {
+      margin-left: percentage(1/3);
     }
 
-    .#{nth( $size, 1 )}-offset-2of3 {
-      margin-left: percentage( 2/3 );
+    .#{nth($breakpoint, 1)}-offset-2of3 {
+      margin-left: percentage(2/3);
     }
 
-    .#{nth( $size, 1 )}-offset-1of4 {
-      margin-left: percentage( 1/4 );
+    .#{nth($breakpoint, 1)}-offset-1of4 {
+      margin-left: percentage(1/4);
     }
 
-    .#{nth( $size, 1 )}-offset-3of4 {
-      margin-left: percentage( 3/4 );
+    .#{nth($breakpoint, 1)}-offset-3of4 {
+      margin-left: percentage(3/4);
     }
 
-    .#{nth( $size, 1 )}-offset-1of8 {
-      margin-left: percentage( 1/8 );
+    .#{nth($breakpoint, 1)}-offset-1of8 {
+      margin-left: percentage(1/8);
     }
 
-    .#{nth( $size, 1 )}-offset-3of8 {
-      margin-left: percentage( 3/8 );
+    .#{nth($breakpoint, 1)}-offset-3of8 {
+      margin-left: percentage(3/8);
     }
 
-    .#{nth( $size, 1 )}-offset-5of8 {
-      margin-left: percentage( 5/8 );
+    .#{nth($breakpoint, 1)}-offset-5of8 {
+      margin-left: percentage(5/8);
     }
 
-    .#{nth( $size, 1 )}-offset-7of8 {
-      margin-left: percentage( 7/8 );
-    }
-  }
-
-  /* for the smallest */
-
-  @if nth( $size, 1 ) == "x-small" {
-
-    @media screen and ( max-width: nth( $size, 3 ) ) {
-
-      .show-#{nth( $size, 1 )} {
-        display: block !important;
-      }
-
-      .hide-#{nth( $size, 1 )} {
-        display: none !important;
-      }
+    .#{nth($breakpoint, 1)}-offset-7of8 {
+      margin-left: percentage(7/8);
     }
   }
 
-  /* for all the rest */
+  @include media('>#{nth($breakpoint, 2)}') {
 
-  @else {
+    .show-#{nth($breakpoint, 1)} {
+      display: block;
+    }
 
-    @media screen and ( min-width: nth( $size, 2 ) ) and ( max-width: nth( $size, 3 ) ) {
-
-      .show-#{nth( $size, 1 )} {
-        display: block !important;
-      }
-
-      .hide-#{nth( $size, 1 )} {
-        display: none !important;
-      }
+    .hide-#{nth($breakpoint, 1)} {
+      display: none;
     }
   }
 }
@@ -168,33 +194,6 @@ hide on mobile:
 /*
 Build the grid classes
 */
-@each $size in $sizes {
-  @include grid-classes( $size );
-}
-
-/*
-Less than media query
-*/
-@mixin less_than($point) {
-  @media screen and (max-width: $point) {
-    @content;
-  }
-}
-
-/*
-Greater than media query
-*/
-@mixin greater_than($point) {
-  @media screen and (min-width: $point) {
-    @content;
-  }
-}
-
-/*
-In between than media query
-*/
-@mixin between($point1, $point2) {
-  @media screen and (min-width: $point1) and (max-width: $point2) {
-    @content;
-  }
+@each $breakpoint in $breakpoints {
+  @include grid-classes($breakpoint);
 }

@@ -42,41 +42,41 @@ Creates margin classes in multiples of $base up to 6.
 
   /* Responsive Classes */
 
-  @each $size in $sizes {
+  @each $breakpoint in $breakpoints {
 
-    @media screen and ( min-width: nth( $size, 2 ) ) and ( max-width: nth( $size, 3 ) ) {
+    @include media('>#{nth($breakpoint, 2)}') {
 
-      .#{nth( $size, 1 )}-margin-#{$i} {
+      .#{nth($breakpoint, 1)}-margin-#{$i} {
         margin: $base * $i;
       }
 
       /* Top */
-      .#{nth( $size, 1 )}-margin-top-#{$i} {
+      .#{nth($breakpoint, 1)}-margin-top-#{$i} {
         margin-top: $base * $i;
       }
 
       /* Right */
-      .#{nth( $size, 1 )}-margin-right-#{$i} {
+      .#{nth($breakpoint, 1)}-margin-right-#{$i} {
         margin-right: $base * $i;
       }
 
       /* Bottom */
-      .#{nth( $size, 1 )}-margin-bottom-#{$i} {
+      .#{nth($breakpoint, 1)}-margin-bottom-#{$i} {
         margin-bottom: $base * $i;
       }
 
       /* Left */
-      .#{nth( $size, 1 )}-margin-left-#{$i} {
+      .#{nth($breakpoint, 1)}-margin-left-#{$i} {
         margin-left: $base * $i;
       }
 
       /* Top, Bottom */
-      .#{nth( $size, 1 )}-margin-v-#{$i} {
+      .#{nth($breakpoint, 1)}-margin-v-#{$i} {
         margin: $base * $i 0;
       }
 
       /* Left, Right */
-      .#{nth( $size, 1 )}-margin-h-#{$i} {
+      .#{nth($breakpoint, 1)}-margin-h-#{$i} {
         margin: 0 $base * $i;
       }
     }

@@ -12,11 +12,12 @@
 ==============================================================================
 */
 
-@charset "UTF-8";
+@charset 'UTF-8';
 
-@import "hoggle/_global.scss";
-@import "hoggle/_variables.scss";
-@import "hoggle/_mixins.scss";
-@import "hoggle/_grid.scss";
-@import "hoggle/_padding.scss";
-@import "hoggle/_margin.scss";
+@import 'hoggle/global';
+@import 'hoggle/variables';
+@import 'hoggle/functions';
+@import 'hoggle/mixins';
+@import 'hoggle/grid';
+@import 'hoggle/padding';
+@import 'hoggle/margin';

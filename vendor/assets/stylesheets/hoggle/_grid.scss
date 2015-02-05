@@ -29,23 +29,6 @@ This limits the width of content and centers it. The breakpoints are powered off
 .container {
   max-width: $x-large;
   margin: 0 auto;
-
-  // @each $size in $sizes {
-
-  //   @if nth( $size, 1 ) == "x-small" {
-
-  //     @media screen and ( min-width: nth( $size, 2 ) ) {
-  //       max-width: nth( $size, 3 );
-  //     }
-  //   }
-
-  //   @else {
-
-  //     @media screen and ( min-width: nth( $size, 2 ) ) {
-  //       max-width: nth( $size, 2 );
-  //     }
-  //   }
-  // }
 }
 
 /*
@@ -74,7 +57,6 @@ Common column. May split this up into more flexible components.
   width: 100%;
   max-width: 100%;
   padding: 0 $gutter;
-  vertical-align: inherit;
 
   &.top {
     vertical-align: top;
@@ -87,12 +69,4 @@ Common column. May split this up into more flexible components.
   &.bottom {
     vertical-align: bottom;
   }
-
-  // &:before {
-  //   content: '';
-  //   display: inline-block;
-  //   height: 100%;
-  //   vertical-align: middle;
-  //   margin-right: -0.25em;
-  // }
 }

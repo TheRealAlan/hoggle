@@ -2,14 +2,13 @@
 Units
 */
 
-$base: 6px;
-$gutter: $base * 2;
+$base      : 6px;
+$gutter    : $base * 2;
+$max_width : 1200px;
 
 /*
 Breakpoints
 */
-
-$x-large: 1200px;
 
 /// Creates a list of global breakpoints
 ///
@@ -19,9 +18,10 @@ $x-large: 1200px;
 ///  $breakpoints: ('phone': 320px);
 ///
 $breakpoints: (
-  'phone'  : 320px,
-  'tablet' : 768px,
-  'desktop': 1024px
+  'phone'    : 320px,
+  'tablet'   : 768px,
+  'desktop'  : 1024px,
+  'bigscreen': 1200px
 ) !default;
 
 /// Creates a list of static expressions or media types
@@ -50,6 +50,15 @@ $media-expressions: (
   'retina3x': (
     '(-webkit-min-device-pixel-ratio: 3)',
     '(min-resolution: 350dpi)'
+  ),
+  'phone-height': (
+    '(max-height: 600px)'
+  ),
+  'laptop-height': (
+    '(max-height: 700px)'
+  ),
+  'desktop-height': (
+    '(max-height: 800px)'
   )
 ) !default;
 

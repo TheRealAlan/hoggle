@@ -1,42 +1,41 @@
 /*
-Classes: .margin-*
 Creates margin classes in multiples of $base up to 6.
 */
 
 @for $i from 1 through 6 {
 
   /* Equal padding all around */
-  .margin-#{$i} {
+  .-m-#{$i} {
     margin: $base * $i;
   }
 
   /* Top */
-  .margin-top-#{$i} {
+  .-mt-#{$i} {
     margin-top: $base * $i;
   }
 
   /* Right */
-  .margin-right-#{$i} {
+  .-mr-#{$i} {
     margin-right: $base * $i;
   }
 
   /* Bottom */
-  .margin-bottom-#{$i} {
+  .-mb-#{$i} {
     margin-bottom: $base * $i;
   }
 
   /* Left */
-  .margin-left-#{$i} {
+  .-ml-#{$i} {
     margin-left: $base * $i;
   }
 
   /* Top, Bottom */
-  .margin-v-#{$i} {
+  .-mv-#{$i} {
     margin: $base * $i 0;
   }
 
   /* Left, Right */
-  .margin-h-#{$i} {
+  .-mh-#{$i} {
     margin: 0 $base * $i;
   }
 
@@ -46,37 +45,37 @@ Creates margin classes in multiples of $base up to 6.
 
     @include media('>#{nth($breakpoint, 2)}') {
 
-      .#{nth($breakpoint, 1)}-margin-#{$i} {
+      .-#{nth($breakpoint, 1)}-m-#{$i} {
         margin: $base * $i;
       }
 
       /* Top */
-      .#{nth($breakpoint, 1)}-margin-top-#{$i} {
+      .-#{nth($breakpoint, 1)}-mt-#{$i} {
         margin-top: $base * $i;
       }
 
       /* Right */
-      .#{nth($breakpoint, 1)}-margin-right-#{$i} {
+      .-#{nth($breakpoint, 1)}-mr-#{$i} {
         margin-right: $base * $i;
       }
 
       /* Bottom */
-      .#{nth($breakpoint, 1)}-margin-bottom-#{$i} {
+      .-#{nth($breakpoint, 1)}-mb-#{$i} {
         margin-bottom: $base * $i;
       }
 
       /* Left */
-      .#{nth($breakpoint, 1)}-margin-left-#{$i} {
+      .-#{nth($breakpoint, 1)}-ml-#{$i} {
         margin-left: $base * $i;
       }
 
       /* Top, Bottom */
-      .#{nth($breakpoint, 1)}-margin-v-#{$i} {
+      .-#{nth($breakpoint, 1)}-mv-#{$i} {
         margin: $base * $i 0;
       }
 
       /* Left, Right */
-      .#{nth($breakpoint, 1)}-margin-h-#{$i} {
+      .-#{nth($breakpoint, 1)}-mh-#{$i} {
         margin: 0 $base * $i;
       }
     }

@@ -62,138 +62,197 @@ swap mixin is attached to the .swap class
 */
 @mixin swap {
 
-  &.swap {
+  &.-swap {
     direction: rtl;
 
     > * {
       direction: ltr;
     }
 
-    > .swap {
+    > .-swap {
       direction: inherit;
     }
   }
 }
 
 /*
-Generate grid classes, as well as hide / show classes off of $sizes array. 
-Since some elements may beed to be shown with block and others with inline-block, 
+Generate grid classes, as well as hide / show classes off of $sizes array.
+Since some elements may beed to be shown with block and others with inline-block,
 the hide / show classes may need to be split into to versions for flexibility.
 
 2 column mobile example:
 
-  .small-1of2
+  .-phone-1of2
 
 8 column desktop example:
 
-  .large-1of8
-
-hide on mobile:
-
-  .hide-x-small
+  .-desktop-1of8
 
 */
-@mixin grid-classes($breakpoint) {
+@mixin grid-classes() {
 
   /* Create grid classes */
 
-  @include media('>#{nth($breakpoint, 2)}') {
-
-    /* Columns */
-    .#{nth($breakpoint, 1)}-1of1 {
-      width: percentage(1/1) !important;
-    }
-
-    .#{nth($breakpoint, 1)}-1of2 {
-      width: percentage(1/2) !important;
-    }
-
-    .#{nth($breakpoint, 1)}-1of3 {
-      width: percentage(1/3) !important;
-    }
-
-    .#{nth($breakpoint, 1)}-2of3 {
-      width: percentage(2/3) !important;
-    }
-
-    .#{nth($breakpoint, 1)}-1of4 {
-      width: percentage(1/4) !important;
-    }
-
-    .#{nth($breakpoint, 1)}-3of4 {
-      width: percentage(3/4) !important;
-    }
-
-    .#{nth($breakpoint, 1)}-1of8 {
-      width: percentage(1/8) !important;
-    }
-
-    .#{nth($breakpoint, 1)}-3of8 {
-      width: percentage(3/8) !important;
-    }
-
-    .#{nth($breakpoint, 1)}-5of8 {
-      width: percentage(5/8) !important;
-    }
-
-    .#{nth($breakpoint, 1)}-7of8 {
-      width: percentage(7/8) !important;
-    }
-
-    /* Offsets */
-
-    .#{nth($breakpoint, 1)}-offset-1of2 {
-      margin-left: percentage(1/2);
-    }
-
-    .#{nth($breakpoint, 1)}-offset-1of3 {
-      margin-left: percentage(1/3);
-    }
-
-    .#{nth($breakpoint, 1)}-offset-2of3 {
-      margin-left: percentage(2/3);
-    }
-
-    .#{nth($breakpoint, 1)}-offset-1of4 {
-      margin-left: percentage(1/4);
-    }
-
-    .#{nth($breakpoint, 1)}-offset-3of4 {
-      margin-left: percentage(3/4);
-    }
-
-    .#{nth($breakpoint, 1)}-offset-1of8 {
-      margin-left: percentage(1/8);
-    }
-
-    .#{nth($breakpoint, 1)}-offset-3of8 {
-      margin-left: percentage(3/8);
-    }
-
-    .#{nth($breakpoint, 1)}-offset-5of8 {
-      margin-left: percentage(5/8);
-    }
-
-    .#{nth($breakpoint, 1)}-offset-7of8 {
-      margin-left: percentage(7/8);
-    }
+  .-all-1of1 {
+    width: percentage(1/1) !important;
   }
 
-  @include media('>#{nth($breakpoint, 2)}') {
+  .-all-1of2 {
+    width: percentage(1/2) !important;
+  }
 
-    .show-#{nth($breakpoint, 1)} {
-      display: block;
-    }
+  .-all-1of3 {
+    width: percentage(1/3) !important;
+  }
 
-    .hide-#{nth($breakpoint, 1)} {
-      display: none;
+  .-all-2of3 {
+    width: percentage(2/3) !important;
+  }
+
+  .-all-1of4 {
+    width: percentage(1/4) !important;
+  }
+
+  .-all-3of4 {
+    width: percentage(3/4) !important;
+  }
+
+  .-all-1of8 {
+    width: percentage(1/8) !important;
+  }
+
+  .-all-3of8 {
+    width: percentage(3/8) !important;
+  }
+
+  .-all-5of8 {
+    width: percentage(5/8) !important;
+  }
+
+  .-all-7of8 {
+    width: percentage(7/8) !important;
+  }
+
+  .-all-offset-1of2 {
+    margin-left: percentage(1/2);
+  }
+
+  .-all-offset-1of3 {
+    margin-left: percentage(1/3);
+  }
+
+  .-all-offset-2of3 {
+    margin-left: percentage(2/3);
+  }
+
+  .-all-offset-1of4 {
+    margin-left: percentage(1/4);
+  }
+
+  .-all-offset-3of4 {
+    margin-left: percentage(3/4);
+  }
+
+  .-all-offset-1of8 {
+    margin-left: percentage(1/8);
+  }
+
+  .-all-offset-3of8 {
+    margin-left: percentage(3/8);
+  }
+
+  .-all-offset-5of8 {
+    margin-left: percentage(5/8);
+  }
+
+  .-all-offset-7of8 {
+    margin-left: percentage(7/8);
+  }
+
+  /* Responsive Grid Classes */
+
+  @each $breakpoint in $breakpoints {
+
+    @include media('>#{nth($breakpoint, 2)}') {
+
+      /* Columns */
+      .-#{nth($breakpoint, 1)}-1of1 {
+        width: percentage(1/1) !important;
+      }
+
+      .-#{nth($breakpoint, 1)}-1of2 {
+        width: percentage(1/2) !important;
+      }
+
+      .-#{nth($breakpoint, 1)}-1of3 {
+        width: percentage(1/3) !important;
+      }
+
+      .-#{nth($breakpoint, 1)}-2of3 {
+        width: percentage(2/3) !important;
+      }
+
+      .-#{nth($breakpoint, 1)}-1of4 {
+        width: percentage(1/4) !important;
+      }
+
+      .-#{nth($breakpoint, 1)}-3of4 {
+        width: percentage(3/4) !important;
+      }
+
+      .-#{nth($breakpoint, 1)}-1of8 {
+        width: percentage(1/8) !important;
+      }
+
+      .-#{nth($breakpoint, 1)}-3of8 {
+        width: percentage(3/8) !important;
+      }
+
+      .-#{nth($breakpoint, 1)}-5of8 {
+        width: percentage(5/8) !important;
+      }
+
+      .-#{nth($breakpoint, 1)}-7of8 {
+        width: percentage(7/8) !important;
+      }
+
+      /* Offsets */
+
+      .-#{nth($breakpoint, 1)}-offset-1of2 {
+        margin-left: percentage(1/2);
+      }
+
+      .-#{nth($breakpoint, 1)}-offset-1of3 {
+        margin-left: percentage(1/3);
+      }
+
+      .-#{nth($breakpoint, 1)}-offset-2of3 {
+        margin-left: percentage(2/3);
+      }
+
+      .-#{nth($breakpoint, 1)}-offset-1of4 {
+        margin-left: percentage(1/4);
+      }
+
+      .-#{nth($breakpoint, 1)}-offset-3of4 {
+        margin-left: percentage(3/4);
+      }
+
+      .-#{nth($breakpoint, 1)}-offset-1of8 {
+        margin-left: percentage(1/8);
+      }
+
+      .-#{nth($breakpoint, 1)}-offset-3of8 {
+        margin-left: percentage(3/8);
+      }
+
+      .-#{nth($breakpoint, 1)}-offset-5of8 {
+        margin-left: percentage(5/8);
+      }
+
+      .-#{nth($breakpoint, 1)}-offset-7of8 {
+        margin-left: percentage(7/8);
+      }
     }
   }
-}
-
-/*
-Build the grid classes
-*/
-@each $breakpoint in $breakpoints {
-  @include grid-classes($breakpoint);
 }

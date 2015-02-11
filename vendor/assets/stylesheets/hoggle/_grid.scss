@@ -1,52 +1,39 @@
 /*
-Class: .clearfix
 Standard modern clearfix.
 */
-.clearfix {
+.-clearfix {
   @include clearfix();
 }
 
 /*
-Class: .swap
 Place this on a .row to swap the column order.
 */
-.swap {
+.-swap {
   @include swap();
 }
 
 /*
-Class: .center
-Basic class to center text.
-*/
-.center {
-  text-align: center;
-}
-
-/*
-Class: .container
 This limits the width of content and centers it. The breakpoints are powered off the $sizes array.
 */
 .container {
-  max-width: $x-large;
+  max-width: $max_width;
   margin: 0 auto;
 }
 
 /*
-Class: .row
 Wraps columns.
 */
 .row {
   @include clearfix();
   clear: both;
 
-  &.group {
+  &.-group {
     margin-left: -$gutter;
     margin-right: -$gutter;
   }
 }
 
 /*
-Class: .col
 Common column. May split this up into more flexible components.
 */
 .col {
@@ -58,15 +45,20 @@ Common column. May split this up into more flexible components.
   max-width: 100%;
   padding: 0 $gutter;
 
-  &.top {
+  &.-top {
     vertical-align: top;
   }
 
-  &.middle {
+  &.-middle {
     vertical-align: middle;
   }
 
-  &.bottom {
+  &.-bottom {
     vertical-align: bottom;
   }
 }
+
+/*
+Build the grid classes
+*/
+@include grid-classes();

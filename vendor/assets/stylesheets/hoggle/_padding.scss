@@ -6,37 +6,37 @@ Creates padding classes in multiples of $base up to 6.
 @for $i from 1 through 6 {
 
   /* Equal padding all around */
-  .pad-#{$i} {
+  .-p-#{$i} {
     padding: $base * $i;
   }
 
   /* Top */
-  .pad-top-#{$i} {
+  .-pt-#{$i} {
     padding-top: $base * $i;
   }
 
   /* Right */
-  .pad-right-#{$i} {
+  .-pr-#{$i} {
     padding-right: $base * $i;
   }
 
   /* Bottom */
-  .pad-bottom-#{$i} {
+  .-pb-#{$i} {
     padding-bottom: $base * $i;
   }
 
   /* Left */
-  .pad-left-#{$i} {
+  .-pl-#{$i} {
     padding-left: $base * $i;
   }
 
   /* Top, Bottom */
-  .pad-v-#{$i} {
+  .-pv-#{$i} {
     padding: $base * $i 0;
   }
 
   /* Left, Right */
-  .pad-h-#{$i} {
+  .-ph-#{$i} {
     padding: 0 $base * $i;
   }
 
@@ -46,37 +46,37 @@ Creates padding classes in multiples of $base up to 6.
 
     @include media('>#{nth($breakpoint, 2)}') {
 
-      .#{nth($breakpoint, 1)}-pad-#{$i} {
+      .-#{nth($breakpoint, 1)}-p-#{$i} {
         padding: $base * $i;
       }
 
       /* Top */
-      .#{nth($breakpoint, 1)}-pad-top-#{$i} {
+      .-#{nth($breakpoint, 1)}-pt-#{$i} {
         padding-top: $base * $i;
       }
 
       /* Right */
-      .#{nth($breakpoint, 1)}-pad-right-#{$i} {
+      .-#{nth($breakpoint, 1)}-pr-#{$i} {
         padding-right: $base * $i;
       }
 
       /* Bottom */
-      .#{nth($breakpoint, 1)}-pad-bottom-#{$i} {
+      .-#{nth($breakpoint, 1)}-pb-#{$i} {
         padding-bottom: $base * $i;
       }
 
       /* Left */
-      .#{nth($breakpoint, 1)}-pad-left-#{$i} {
+      .-#{nth($breakpoint, 1)}-pl-#{$i} {
         padding-left: $base * $i;
       }
 
       /* Top, Bottom */
-      .#{nth($breakpoint, 1)}-pad-v-#{$i} {
+      .-#{nth($breakpoint, 1)}-pv-#{$i} {
         padding: $base * $i 0;
       }
 
       /* Left, Right */
-      .#{nth($breakpoint, 1)}-pad-h-#{$i} {
+      .-#{nth($breakpoint, 1)}-ph-#{$i} {
         padding: 0 $base * $i;
       }
     }
